@@ -30,11 +30,9 @@ export default class AddListModal extends React.Component {
   createTodo = () => {
     const { name, color } = this.state;
 
-    tempData.push({
-      name,
-      color,
-      todos: [],
-    });
+    const list = {name, color}
+
+    this.props.addList(list);
 
     this.setState({ name: "" });
     this.props.closeModal();
@@ -64,7 +62,7 @@ export default class AddListModal extends React.Component {
 
         <View style={{ alignSelf: "stretch", marginHorizontal: 32 }}>
           <Text style={[styles.title]}>Create</Text>
-          <Text style={[styles.title, {marginBottom: 16, paddingTop: 5}]}>ToDo<Text style={{color: colors.blue}}>Task</Text></Text>
+          <Text style={[styles.title, { marginBottom: 16, paddingTop: 5 }]}>ToDo<Text style={{ color: colors.blue }}>Task</Text></Text>
 
           <TextInput
             style={styles.input}
