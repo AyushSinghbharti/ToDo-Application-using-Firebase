@@ -29,7 +29,11 @@ export default class App extends React.Component {
   };
 
   updateList = list => {
-
+    this.setState({
+      lists: this.state.lists.map(item => {
+        return item.id === list.id ? list : item
+      })
+    })
   }
 
   render() {
